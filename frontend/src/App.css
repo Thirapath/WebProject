@@ -1,0 +1,282 @@
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 15px;
+}
+
+.app-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.player-name {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin: 5px 0;
+}
+
+/* ===== Game Container Layout ===== */
+.game-container {
+  display: grid;
+  grid-template-columns: 280px 1fr 280px;
+  gap: 15px;
+  max-width: 1600px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.center-panel {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ===== Message Box ===== */
+.game-message {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 12px 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2d3436;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+/* ===== Last Roll Info ===== */
+.last-roll-info {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.last-roll-info h3 {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.last-roll-info p {
+  margin: 5px 0;
+  color: #636e72;
+  text-align: center;
+}
+
+.dice-result {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #e74c3c;
+  margin: 8px 0;
+}
+
+.position-change {
+  font-size: 1rem;
+  color: #0984e3;
+  font-weight: 600;
+}
+
+/* ===== Winner Announcement ===== */
+.winner-announcement {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+  animation: pulse 1s infinite;
+}
+
+.winner-announcement h2 {
+  margin: 0 0 10px 0;
+  color: #2d3436;
+  font-size: 1.5rem;
+}
+
+.winner-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #e74c3c;
+  margin: 10px 0;
+}
+
+.winner-token {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  border: 4px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin: 15px auto 0;
+}
+
+/* ===== Animations ===== */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* ===== Responsive Design ===== */
+
+/* Large Desktop (>1400px) */
+@media (min-width: 1400px) {
+  .game-container {
+    grid-template-columns: 320px 1fr 320px;
+  }
+}
+
+/* Desktop (1024-1400px) */
+@media (max-width: 1400px) {
+  .game-container {
+    grid-template-columns: 260px 1fr 260px;
+  }
+}
+
+/* Tablet (768-1024px) */
+@media (max-width: 1024px) {
+  .App {
+    padding: 10px;
+  }
+
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .game-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .left-panel {
+    order: 3;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .left-panel > * {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .center-panel {
+    order: 1;
+  }
+
+  .right-panel {
+    order: 2;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .right-panel > * {
+    flex: 1;
+    min-width: 250px;
+  }
+}
+
+/* Mobile (480-768px) */
+@media (max-width: 768px) {
+  .App {
+    padding: 8px;
+  }
+
+  .app-header {
+    margin-bottom: 15px;
+  }
+
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .player-name {
+    font-size: 0.9rem;
+  }
+
+  .game-container {
+    gap: 8px;
+  }
+
+  .left-panel,
+  .right-panel {
+    flex-direction: column;
+  }
+
+  .game-message {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Mobile (<480px) */
+@media (max-width: 480px) {
+  .App {
+    padding: 5px;
+  }
+
+  .app-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .player-name {
+    font-size: 0.8rem;
+  }
+
+  .winner-announcement {
+    padding: 15px;
+  }
+
+  .winner-announcement h2 {
+    font-size: 1.2rem;
+  }
+
+  .winner-name {
+    font-size: 1.1rem;
+  }
+
+  .winner-token {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    border-width: 3px;
+  }
+}

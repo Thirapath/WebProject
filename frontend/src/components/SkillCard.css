@@ -1,0 +1,134 @@
+.skill-card-container {
+  margin: 15px 0;
+}
+
+.skill-card-container.empty {
+  opacity: 0.6;
+}
+
+.skill-card-placeholder {
+  background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  border: 2px dashed #bdbdbd;
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 10px;
+  opacity: 0.5;
+}
+
+.skill-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: white;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: cardAppear 0.5s ease-out;
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotateY(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.skill-card.even {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.skill-card.odd {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.skill-card.extra_turn {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+}
+
+.skill-card.snake_shield {
+  background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+}
+
+.skill-icon {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  animation: iconBounce 2s infinite;
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.skill-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 10px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.skill-description {
+  font-size: 0.9rem;
+  margin: 10px 0;
+  opacity: 0.9;
+}
+
+.use-skill-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.use-skill-button:hover:not(:disabled) {
+  background: #f8f9fa;
+  transform: scale(1.05);
+}
+
+.use-skill-button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.use-skill-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skill-icon {
+    font-size: 2.5rem;
+  }
+
+  .skill-name {
+    font-size: 1.1rem;
+  }
+
+  .skill-description {
+    font-size: 0.85rem;
+  }
+}

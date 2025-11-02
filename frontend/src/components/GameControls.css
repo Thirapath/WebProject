@@ -1,0 +1,373 @@
+.game-controls {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.game-controls h3 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.control-button {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 10px;
+}
+
+.start-button {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+}
+
+.start-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(17, 153, 142, 0.4);
+}
+
+.roll-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.roll-button:hover:not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.roll-button.disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.reset-button {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.reset-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+}
+
+.control-button:active:not(.disabled) {
+  transform: translateY(0);
+}
+
+/* ===== Dice Result Container ===== */
+.dice-result {
+  margin-top: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.dice-player {
+  margin: 0 0 15px 0;
+  color: #2d3436;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* ===== Dice Container ===== */
+.dice-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+/* ===== 3D Dice ===== */
+.dice-3d {
+  perspective: 1000px;
+  animation: diceShake 0.6s ease-out;
+}
+
+@keyframes diceShake {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  10% { transform: translateY(-10px) rotate(10deg); }
+  20% { transform: translateY(10px) rotate(-10deg); }
+  30% { transform: translateY(-10px) rotate(10deg); }
+  40% { transform: translateY(10px) rotate(-10deg); }
+  50% { transform: translateY(-5px) rotate(5deg); }
+  60% { transform: translateY(5px) rotate(-5deg); }
+  70% { transform: translateY(-2px) rotate(2deg); }
+  80% { transform: translateY(2px) rotate(-2deg); }
+}
+
+.dice-3d.rolling {
+  animation: diceShakeRoll 0.1s infinite;
+}
+
+@keyframes diceShakeRoll {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+.dice-face-3d {
+  width: 70px;
+  height: 70px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 8px;
+  position: relative;
+  place-items: center;
+  transition: transform 0.1s ease;
+}
+
+@keyframes diceRotate {
+  0% { 
+    transform: rotateX(0deg) rotateY(0deg) scale(0.5);
+    opacity: 0;
+  }
+  50% { 
+    transform: rotateX(180deg) rotateY(180deg) scale(1.1);
+    opacity: 1;
+  }
+  100% { 
+    transform: rotateX(360deg) rotateY(360deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.dot {
+  width: 12px; /* à¹€à¸žà¸´à¹ˆà¸¡à¸‚à¸™à¸²à¸” */
+  height: 12px;
+  background: #e74c3c;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Plus Sign ===== */
+.dice-plus {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2d3436;
+  animation: plusPulse 0.6s ease-out;
+}
+
+@keyframes plusPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+/* ===== Total Result ===== */
+.dice-total {
+  margin: 15px 0 10px 0;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.total-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #636e72;
+}
+
+.total-value {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #e74c3c;
+  animation: totalBounce 0.6s ease-out;
+}
+
+@keyframes totalBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* ===== Position Change ===== */
+.position-change {
+  margin-top: 10px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.old-pos {
+  color: #636e72;
+  padding: 4px 8px;
+  background: #dfe6e9;
+  border-radius: 5px;
+}
+
+.arrow {
+  color: #0984e3;
+  font-size: 1.2rem;
+}
+
+.new-pos {
+  color: #00b894;
+  padding: 4px 8px;
+  background: #d1f2eb;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .dice-face-3d {
+    width: 60px;
+    height: 60px;
+    padding: 6px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .dice-plus {
+    font-size: 1.5rem;
+  }
+
+  .total-value {
+    font-size: 1.8rem;
+  }
+
+  .dice-player {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-controls {
+    padding: 15px;
+  }
+
+  .dice-face-3d {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .dice-container {
+    gap: 10px;
+  }
+
+  .dice-plus {
+    font-size: 1.3rem;
+  }
+
+  .total-value {
+    font-size: 1.5rem;
+  }
+
+  .position-change {
+    font-size: 0.85rem;
+  }
+}
+/* Skill Card Display */
+.my-skill-card {
+  margin: 15px 0;
+  padding: 15px;
+  background: linear-gradient(135deg, #a29bfe 0%, #fd79a8 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+}
+
+.skill-card-display {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.skill-card-display .skill-icon {
+  font-size: 2rem;
+  animation: skillBounce 2s ease-in-out infinite;
+}
+
+@keyframes skillBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.skill-info {
+  flex: 1;
+}
+
+.skill-info strong {
+  display: block;
+  color: #6c5ce7;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.skill-info p {
+  margin: 0;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.use-skill-button {
+  background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+  color: #2d3436;
+  font-weight: bold;
+  border: none;
+  animation: skillGlow 2s ease-in-out infinite;
+}
+
+@keyframes skillGlow {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(253, 203, 110, 0.5);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(253, 203, 110, 0.9);
+  }
+}
+
+.use-skill-button:hover:not(.disabled) {
+  background: linear-gradient(135deg, #fdcb6e 0%, #ffeaa7 100%);
+  transform: translateY(-2px);
+}
+
+.use-skill-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  animation: none;
+}
