@@ -31,7 +31,7 @@ function App() {
     ladderSoundRef.current = new Audio('/sounds/ladder.mp3');
     snakeSoundRef.current = new Audio('/sounds/snake.mp3');
 
-    const SOCKET_URL = 'http://localhost:3001';
+    const SOCKET_URL = 'https://webproject-5zvl.onrender.com';
     console.log('🔌 กำลังเชื่อมต่อกับ:', SOCKET_URL);
 
     const newSocket = io(SOCKET_URL, {
