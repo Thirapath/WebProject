@@ -1,0 +1,12 @@
+{
+  "name": "snakes-game",
+  "version": "1.0.0",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build": "npm install",
+    "client": "cd client && npm start"
+  }
+}
